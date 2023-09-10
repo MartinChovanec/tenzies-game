@@ -4,28 +4,29 @@ import Die from "./components/Die"
 
 export default function App() {
 
-    function allNewDice() {
+  const [numbers, setNumbers] = React.useState(allNewDiceNumbers)
+  console.log(numbers)
+
+    function allNewDiceNumbers() {
         const newDice = []
         for (let i = 0; i < 10; i++) {
             newDice.push(Math.floor((Math.random() * 6) + 1))
         }
         return (newDice)
     }
-    console.log(allNewDice())
+    const allDiceElemennts = numbers.map(finalValue => {
+      return (
+          <Die
+              value={finalValue}
+              {...finalValue}
+          />
+      )
+  })       
 
     return (
         <main>
             <div className="dice-container">
-                <Die value="1" />
-                <Die value="2" />
-                <Die value="3" />
-                <Die value="4" />
-                <Die value="5" />
-                <Die value="6" />
-                <Die value="1" />
-                <Die value="1" />
-                <Die value="1" />
-                <Die value="1" />
+                {allDiceElemennts}
             </div>
         </main>
     )
