@@ -7,6 +7,8 @@ export default function App() {
   const [numbers, setNumbers] = React.useState(allNewDiceNumbers)
   console.log(numbers)
 
+
+
     function allNewDiceNumbers() {
         const newDice = []
         for (let i = 0; i < 10; i++) {
@@ -14,6 +16,11 @@ export default function App() {
         }
         return (newDice)
     }
+    
+    function rollDice() {
+      setNumbers(allNewDiceNumbers ())
+    }
+    
     const allDiceElemennts = numbers.map(finalValue => {
       return (
           <Die
@@ -27,6 +34,9 @@ export default function App() {
         <main>
             <div className="dice-container">
                 {allDiceElemennts}
+            </div>
+            <div className="button">
+            <button onClick={rollDice}>Roll</button>
             </div>
         </main>
     )
