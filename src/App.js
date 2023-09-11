@@ -19,6 +19,14 @@ export default function App() {
     function rollDice() {
       setDice(newAllDice ())
     }
+
+    function holdDice(id) {
+      setDice(prevDice => prevDice.map(die => {
+        return die.id === id ? 
+            {...die, isHeld: !die.isHeld} :
+            die
+    }))
+  }
     
     const allDiceElements = dice.map(die => {
       return (
@@ -26,12 +34,14 @@ export default function App() {
               key = {die.id}
               value = {die.value}
               isHeld = {die.isHeld}
+              holdDice={() => holdDice(die.id)}         
           />
       )
-  })       
+  })
 
     return (
         <main>
+            <h1 style={{color:"red"}}>Tenzies game - The project is not finished yet!</h1>
             <div className="dice-container">
                 {allDiceElements}
             </div>
