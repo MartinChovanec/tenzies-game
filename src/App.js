@@ -4,6 +4,17 @@ import { nanoid } from "nanoid";
 
 export default function App() {
     const [dice, setDice] = React.useState(newAllDice);
+    const [won, setWon] = React.useState(false);
+
+    React.useEffect(() => {
+        const allIsHeld = dice.every((die) => die.isHeld);
+        const firstValue = dice[0].value;
+        const allHasSameValue = dice.every((die) => die.value === firstValue);
+        if (allIsHeld && allHasSameValue) {
+            setWon(true);
+            console.log("You won! Congratulations");
+        }
+    }, [dice]);
 
     function newAllDice() {
         const newDice = [];
