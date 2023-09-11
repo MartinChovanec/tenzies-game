@@ -1,1 +1,1 @@
-The project is not finished yet!
+The project is not finished yet! Styling part is missing. The logic part is ready
