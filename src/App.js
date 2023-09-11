@@ -53,7 +53,8 @@ export default function App() {
     return (
         <main>
             {won && <Confetti />}
-            <h1 style={{ color: "red" }}> Tenzies game - The project is not finished yet!</h1>
+            <h1 style={{ color: "red" }}> Tenzies game</h1>
+            <h2 style={{ color: "red" }}> The project is not finished yet! Styling part is missing</h2>
             <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">{allDiceElements}</div>
             <div className="button-roll">
