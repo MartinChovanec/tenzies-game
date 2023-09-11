@@ -3,7 +3,6 @@ import Die from "./components/Die";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 
-
 export default function App() {
     const [dice, setDice] = React.useState(newAllDice);
     const [won, setWon] = React.useState(false);
@@ -12,7 +11,7 @@ export default function App() {
         const allIsHeld = dice.every((die) => die.isHeld);
         const firstValue = dice[0].value;
         const allHasSameValue = dice.every((die) => die.value === firstValue);
-        if (allIsHeld && allHasSameValue ) {
+        if (allIsHeld && allHasSameValue) {
             setWon(true);
             console.log("You won! Congratulations");
         }
@@ -27,14 +26,15 @@ export default function App() {
     }
 
     function rollDice() {
-        if(!won){
-          setDice((prevDice) =>
-            prevDice.map((die) => {
-                return die.isHeld ? die : { ...die, value: Math.floor(Math.random() * 6 + 1) };
-            })
-        )} else {
-          setWon(false)
-          setDice(newAllDice())
+        if (!won) {
+            setDice((prevDice) =>
+                prevDice.map((die) => {
+                    return die.isHeld ? die : { ...die, value: Math.floor(Math.random() * 6 + 1) };
+                })
+            );
+        } else {
+            setWon(false);
+            setDice(newAllDice());
         }
     }
 
